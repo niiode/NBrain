@@ -1,20 +1,26 @@
 // Copyright 2021 Niiode. All Rights Reserved.
 
-#include <string>
-#include <iostream>
-
-#define LOG(_str) std::cout << _str << std::endl;
+#include <NBrain/Core/Debug/Debug.hpp>
+using namespace NB;
 
 
 int main()
 {
-	LOG("=== Start ===\n");
+	NB_LOG("=== Start ===\n");
 
 
-	
+	NB_LOG("Normal Test", LogLevel::Normal);
+	NB_LOG("Infos Test", LogLevel::Infos);
+	NB_LOG("Warning Test", LogLevel::Warning);
+	NB_LOG("Error Test", LogLevel::Error);
+	NB_LOG("Unknown Test", (LogLevel)8);
 
 
-	LOG("\n=== End ===");
+	NB_ENDLINE();
+	NB_LOG("=== End ===");
+
+
+	system("pause");
 
 	return 0;
 }
