@@ -3,7 +3,7 @@
 namespace NB
 {
 	template <typename T>
-	std::vector<float> RecursiveNN<T>::Compute(const std::vector<float>& _inputs) const
+	NeuronData RecursiveNN<T>::Compute(const NeuronData& _inputs) const
 	{
 		return std::vector<float>();
 	}

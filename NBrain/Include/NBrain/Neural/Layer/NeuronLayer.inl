@@ -12,34 +12,13 @@ namespace NB
 	}
 
 	template <typename T>
-	std::vector<float> NeuronLayer<T>::Compute(const std::vector<float>& _inputs) const
+	NeuronData NeuronLayer<T>::Compute(const NeuronData& _inputs) const
 	{
-		std::vector<float> res(mNeurons.size());
+		std::vector<float> fres(mNeurons.size());
 
 		for (uint32 i = 0; i < mNeurons.size(); ++i)
-			res[i] = mNeurons[i].Compute(_inputs);
+			fres[i] = mNeurons[i].Compute(_inputs);
 
-		return std::move(res);
+		return NeuronData(fres);
 	}
-
-#if NB_DEBUG
-
-	template <typename T>
-	uint32 NeuronLayer<T>::GetNeuronNum() const
-	{
-		return mNeurons.size();
-	}
-
-	template <typename T>
-	std::string NeuronLayer<T>::DebugPrint() const
-	{
-		std::string res = "Neurons: " + std::to_string(mNeurons.size()) + '\n';
-
-		for (uint32 i = 0; i < mNeurons.size(); ++i)
-			res += mNeurons[i].DebugPrint() + '\n';
-
-		return res;
-	}
-
-#endif
 }

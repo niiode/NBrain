@@ -20,14 +20,8 @@ namespace NB
 		using NeuronT = typename NeuronLayerT::NeuronT;
 
 		virtual void Generate(const NNCreateInfos& _infos) = 0;
-		virtual std::vector<float> Compute(const std::vector<float>& _inputs) const = 0;
-
-#if NB_DEBUG
-		virtual std::string DebugPrint() const;
-#endif
+		virtual NeuronData Compute(const NeuronData& _inputs) const = 0;
 	};
 }
-
-#include <Neural/Network/INeuralNetwork.inl>
 
 #endif // GUARD

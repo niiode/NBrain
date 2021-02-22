@@ -46,7 +46,7 @@ namespace NB
 	}
 
 	template <typename T>
-	std::vector<float> FeedForwardNN<T>::Compute(const std::vector<float>& _inputs) const
+	NeuronData FeedForwardNN<T>::Compute(const NeuronData& _inputs) const
 	{
 #if NB_DEBUG
 		if (!mLayers.size())
@@ -56,10 +56,10 @@ namespace NB
 		}
 #endif
 
-		std::vector<float> res = mLayers[0].Compute(_inputs);
+		NeuronData res = mLayers[0].Compute(_inputs);
 
 		// Feed forward result to next layer.
-		for (uint32 i = 1; i < res.size(); ++i)
+		for (uint32 i = 1; i < mLayers.size(); ++i)
 			res = mLayers[i].Compute(res);
 
 		return res;

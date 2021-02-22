@@ -16,7 +16,7 @@ namespace NB
 	class RecursiveNN : public INeuralNetwork<T>
 	{
 	public:
-		std::vector<float> Compute(const std::vector<float>& _inputs) const override final;
+		NeuronData Compute(const NeuronData& _inputs) const override final;
 	};
 }
 

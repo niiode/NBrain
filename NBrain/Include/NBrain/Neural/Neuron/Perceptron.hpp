@@ -5,8 +5,6 @@
 
 #include <Neural/Neuron/INeuron.hpp>
 
-#include <Core/Debug/Debug.hpp>
-
 namespace NB
 {
 	/**
@@ -16,19 +14,19 @@ namespace NB
 
 	class Perceptron : public INeuron
 	{
+		NeuronData mWeights;
+
 		float mBias = 1.0f;
-
-		std::vector<float> mWeights;
-
 		float mThreshold = 1.0f;
+
+		/**
+		*	\brief Apply Sigmoid function using mThreshold. 
+		*/
+		float Sigmoid(float _input) const noexcept;
 
 	public:
 		NBRAIN_API void Generate(uint32 _inputNum);
-		NBRAIN_API float Compute(const std::vector<float>& _inputs) const override final;
-
-#if NB_DEBUG
-		NBRAIN_API std::string DebugPrint() const override final;
-#endif
+		NBRAIN_API float Compute(const NeuronData& _inputs) const override final;
 	};
 }
 

@@ -20,8 +20,6 @@ int main()
 		ffNet.Generate(createInfos);
 	}
 
-	NB_LOG(ffNet.DebugPrint());
-
 
 	NB_ENDLINE();
 	NB_LOG("=== End ===");

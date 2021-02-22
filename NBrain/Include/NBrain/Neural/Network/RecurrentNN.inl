@@ -3,7 +3,7 @@
 namespace NB
 {
 	template <typename T>
-	std::vector<float> RecurrentNN<T>::Compute(const std::vector<float>& _inputs) const
+	NeuronData RecurrentNN<T>::Compute(const NeuronData& _inputs) const
 	{
 		return std::vector<float>();
 	}

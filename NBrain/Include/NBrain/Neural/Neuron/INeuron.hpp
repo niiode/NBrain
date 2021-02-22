@@ -3,9 +3,7 @@
 #ifndef NBRAIN_NEURAL_INEURON_GUARD
 #define NBRAIN_NEURAL_INEURON_GUARD
 
-#include <vector>
-
-#include <Core/Debug/Debug.hpp>
+#include <Neural/Neuron/NeuronData.hpp>
 
 namespace NB
 {
@@ -14,11 +12,7 @@ namespace NB
 	public:
 		virtual ~INeuron() = default;
 
-		virtual float Compute(const std::vector<float>& _inputs) const = 0;
-
-#if NB_DEBUG
-		virtual std::string DebugPrint() const = 0;
-#endif
+		virtual float Compute(const NeuronData& _inputs) const = 0;
 	};
 }
 

@@ -6,6 +6,7 @@
 #include <vector>
 
 #include <Core/Debug/Debug.hpp>
+#include <Neural/Neuron/NeuronData.hpp>
 
 namespace NB
 {
@@ -18,13 +19,7 @@ namespace NB
 		using NeuronT = T;
 
 		void Generate(uint32 _neuronNum, uint32 _inputNum);
-		std::vector<float> Compute(const std::vector<float>& _inputs) const;
-
-#if NB_DEBUG
-		uint32 GetNeuronNum() const;
-
-		virtual std::string DebugPrint() const;
-#endif
+		NeuronData Compute(const NeuronData& _inputs) const;
 	};
 }
 

@@ -19,7 +19,7 @@ namespace NB
 
 	public:
 		void Generate(const NNCreateInfos& _infos) override final;
-		std::vector<float> Compute(const std::vector<float>& _inputs) const override final;
+		NeuronData Compute(const NeuronData& _inputs) const override final;
 	};
 }
 
